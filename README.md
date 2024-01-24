@@ -131,3 +131,130 @@ Gelijkaardige data zoeken
 ### Hierarchical Navigable Small World (HNSW)
 - Dit is een combinatie van Probability Skip List en Navigable Small World.
 - Het past dezelfde operatie toe als NSW, maar dan laag voor laag. Als je een lokaal minimum bereikt, daal je een laag en zoek je daar opnieuw naar een lokaal minimum totdat je de laatste laag bereikt.
+
+
+## H6 AI & ...
+
+### H6.1 AI & Images
+
+**Deep Generative Models:**
+- GAN (Generative Adversarial Networks) (Adversarial training)
+  - high quality samples and fast sampling
+- VAE (maximize variational lower bound)
+  - fast sampling and diversity
+- Diffusion models (Gradually add Gaussian noise and then reverse)
+  - high quality samples and diversity
+
+**Key players:**
+- MidJourney
+- Dall-E
+- Ideogram
+- ...
+
+### H6.2 AI & Sound
+
+**AI tools for voice:**
+- Text to speech (TTS)
+- Voice cloning
+- Voice generation
+
+**Human voice over:**
+- *Pros*
+  - Juiste emotie
+  - Eigen stem voor je werk -> karakter, flexibel en juiste toon
+  - Brengt je boodschap sterk over aan publiek
+- *Cons*
+  - Hoge kosten
+  - Tijdrovend
+  - Dure equipment
+
+**AI voice over:**
+- *Pros*
+  - Succesvol in minder tijd
+  - Kost vaak minder dan een mens
+  - Controle over de stem
+- *Cons*
+  - Geen accenten (lokale brands)
+  - Geen flexibiliteit (synoniemen en timing)
+  - Geen menselijke stem
+
+### H6.3 AI & Video
+
+Alleen maar voorbeelden, valt dus niets over te kennen.
+
+## H7 AI Ethics
+
+**3 types of AI:**
+- Artificial Narrow Intelligence (ANI)
+- Artificial General Intelligence (AGI)
+- Artificial Super Intelligence (ASI)
+
+**De ethiek van techniek:**
+Technologie als verlengstuk van morele overtuiging
+- nudging
+- judging
+- utilitarisme
+- Deontologie
+
+## H8 Langchain
+
+Eden AI is een alternatief op OpenAI, is een framework dat dient om LLM-gebruikende applicaties te ontwikkelen. Het laat toe om componenten aan elkaar te 'chainen' en gestandaardiseerd vers modellen te gebruiken. Het probleem: documentatie.
+
+**Conversation memory:**
+Je hoeft niet langer de prompts in hun geheel mee te geven.
+
+**Chains:**
+- SimpleSequentialChain (output van de ene is input van de andere)
+- SequentialChain (output van de ene is 1 van de inputs van de andere) (Complexer)
+
+**RetrievalQA:**
+Q & A over documenten, vorm krijgen van vraag-antwoord.
+
+**Agents:**
+Laat toe om externe bronnen toe te voegen (bv. rekenmodule, Wikipedia of een zoekmachine).
+
+**Chat with your data:**
+- Document loading (laden van documenten: tekst, afbeeldingen, ...)
+- Splitting (opsplitsen van documenten in afzonderlijke eenheden, bijv. tekst opsplitsen in paragrafen)
+- Storage aka vectorstores (hier worden de gesplitste gegevens opgeslagen -> gemakkelijk gelijkaardige content terugvinden)
+- Retrieval (Maximum Marginal Relevance (MMR), soms krijg je resultaten met dezelfde inhoud, door MMR zal je ook diversiteit in rekening nemen -> nieuwe ranking maken) (ophalen van de gesplitste gegevens wanneer nodig, met de nodige query (question))
+- Output (resultaat, je moet ook met de eerder gegeven antwoorden rekening houden, anders kan je niet chatten natuurlijk)
+
+## H9 Partial Dependence Display
+
+- Letterlijk een oefening gecopy-paste van machine learning
+- **Partial Dependence Display (PDP):**
+  - Stelt het marginale effect van 1 (of 2) features op het verwachte resultaat voor
+  - Wordt gecreëerd als volgt: hou op de trainingsdata alle features buiten 1 vast, deze laat je variëren over alle mogelijke waarden -> kijk effect
+  - Definitie: PDPs tonen het gemiddelde effect van een enkel kenmerk op de doelvariabele terwijl de andere vast worden gehouden
+
+## H10 Pinecone Semantic Search
+
+Je gebruikt Pinecone voor een semantische zoekopdracht. Semantische search aka betekenisvolle zoekopdracht is een zoekmethode die weet wat een woord of zin in een context betekent.
+
+- **Pinecone Semantic Search maakt gebruik van vectorrepresentaties van objecten (zoals tekst of afbeeldingen).**
+- Objecten worden omgezet in numerieke vectoren en opgeslagen in de Pinecone-database.
+- Bij een semantische zoekopdracht wordt de zoekterm ook omgezet in een vector, en Pinecone zoekt naar objecten met vectoren die dicht bij de zoekvector liggen in de ruimte van semantische betekenis.
+- Resultaten tonen objecten die semantisch vergelijkbaar zijn met de ingevoerde zoekterm, gebaseerd op betekenis en context, niet alleen op letterlijke overeenkomsten.
+
+## H11 Saliency Mapping
+
+- **Loss function: Negative Log-Likelihood (NLL)**
+  - Berekent het verlies (neg log van de kans voor de ware klasse)
+  - 1. Softmax op de score-vector toepassen ([w, x, y])
+  - 2. NLL-verlies = -log(x) ~= ? (voor klasse B)
+  - Als het positief is -> model heeft een lage waarschijnlijkheid/geloofwaardigheid (weinig vertrouwen in zijn eigen voorspelling)
+- **Saliency gradient:**
+  - Visualiseert hoe de verandering in de output van een model samenhangt met veranderingen in de input
+  - Welke pixels moet je het minst wijzigen voor het grootste verschil in output
+- **InputX gradient:**
+  - Uitbreiding van saliency gradient
+  - Gradient * input
+- **Integrated gradients:**
+  - Heeft als doel de bijdrage van elke functie aan de voorspelling nauwkeuriger te identificeren dan eenvoudigere gradientmethoden.
+  - Kiezen van baseline (bijv. witte of zwarte afbeelding)
+  - Telkens worden er interpolaties gemaakt tussen de baseline en de eigen invoer (baseline geleidelijk vervangen door de daadwerkelijke invoer)
+  - Bij elke stap wordt de gradient van de uitvoer ten opzichte van de invoer berekend
+  - Grad van alle stappen worden opgeteld
+  - De berekende geïntegreerde gradienten geven aan hoeveel elke invoerfeature heeft bijgedragen aan de vo
+
