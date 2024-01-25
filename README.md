@@ -256,5 +256,7 @@ Je gebruikt Pinecone voor een semantische zoekopdracht. Semantische search aka b
   - Telkens worden er interpolaties gemaakt tussen de baseline en de eigen invoer (baseline geleidelijk vervangen door de daadwerkelijke invoer)
   - Bij elke stap wordt de gradient van de uitvoer ten opzichte van de invoer berekend
   - Grad van alle stappen worden opgeteld
-  - De berekende geïntegreerde gradienten geven aan hoeveel elke invoerfeature heeft bijgedragen aan de vo
-
+  - De berekende geïntegreerde gradienten geven aan hoeveel elke invoerfeature heeft bijgedragen aan de voorspelling
+  - visualiseer met een heatmap
+- **Pertubation gebaseerd**
+  - aanpassen van de input om te zien hoe de output veranderd (model agonisch)
